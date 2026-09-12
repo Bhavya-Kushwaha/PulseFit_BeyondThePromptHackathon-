@@ -1,0 +1,1882 @@
+[
+  {
+    "archetype_id": "us.cafe.airport_terminal_concession.v1",
+    "category_id": "CAFE",
+    "number": 11,
+    "name": "Airport terminal concession",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "enplaning, deplaning, connecting and worker flow exposed to the location",
+    "decision_object": "current terminal concession package in the exact security zone",
+    "required_gate": "airport, terminal, security side, circulation zone and live concession package",
+    "access_contract": "AIRPORT_TERMINAL_FLOW_CONTAINMENT",
+    "primary_signals": [
+      "TRANSIT_PASSENGER",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "HOSPITALITY_GUEST",
+      "DAYTIME_WORKER",
+      "TOURIST_VISITOR"
+    ],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "OVERNIGHT",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "airport centroid or neighborhood population cannot create terminal demand",
+      "airside and landside flows cannot be merged"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_FLIGHT_FLOW_TERMINAL_TRAVERSAL_AND_CONCESSION"
+  },
+  {
+    "archetype_id": "us.cafe.arena_event_concession.v1",
+    "category_id": "CAFE",
+    "number": 20,
+    "name": "Arena / event concession",
+    "decision_track": "LIVE_OPPORTUNITY",
+    "mission": "ticketed attendees and workers traversing the same venue zone",
+    "decision_object": "current concession package in the exact venue zone",
+    "required_gate": "named venue, live concession package and governed event calendar",
+    "access_contract": "VENUE_ZONE_AND_EVENT_FLOW_CONTAINMENT",
+    "primary_signals": [
+      "EVENT_SEASONAL",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER",
+      "TRANSIT_PASSENGER",
+      "TOURIST_VISITOR"
+    ],
+    "context_only_signals": [
+      "HOSPITALITY_GUEST"
+    ],
+    "demand_clocks": [
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "nearby resident population cannot replace ticketed attendance",
+      "event peaks cannot be annualized into an ordinary day"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_EVENT_ATTENDANCE_CALENDAR_AND_CONCESSION"
+  },
+  {
+    "archetype_id": "us.cafe.campus_adjacent_street_counter.v1",
+    "category_id": "CAFE",
+    "number": 4,
+    "name": "Campus-adjacent street counter",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "students, faculty and staff using public campus access",
+    "decision_object": "public storefront outside institutional control",
+    "required_gate": "public storefront routed to an accessible public campus gate or entrance within the 5/10-minute contract",
+    "access_contract": "PUBLIC_ENTRANCE_PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "CAMPUS_POPULATION"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER",
+      "TRANSIT_PASSENGER"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE",
+      "SHOPPING_ERRAND"
+    ],
+    "demand_clocks": [
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING"
+    ],
+    "prohibited_substitutions": [
+      "education jobs cannot replace enrollment",
+      "H3 adjacency cannot cross a private campus boundary"
+    ],
+    "computation_state": "PARTIAL_EDUCATION_JOBS_AND_ANCHORS_ONLY"
+  },
+  {
+    "archetype_id": "us.cafe.campus_captive_kiosk.v1",
+    "category_id": "CAFE",
+    "number": 13,
+    "name": "Campus-captive kiosk",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "authorized campus population using governed internal paths",
+    "decision_object": "current food-service opportunity inside the governed campus access regime",
+    "required_gate": "named campus building/internal zone and live institutional food-service opportunity",
+    "access_contract": "CAMPUS_CONTAINMENT_AND_INTERNAL_PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "CAMPUS_POPULATION",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER"
+    ],
+    "context_only_signals": [
+      "TRANSIT_PASSENGER"
+    ],
+    "demand_clocks": [
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING"
+    ],
+    "prohibited_substitutions": [
+      "external neighborhood population cannot be added",
+      "campus anchor cannot create an available kiosk"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_ENROLLMENT_CIRCULATION_AND_OPPORTUNITY"
+  },
+  {
+    "archetype_id": "us.cafe.cultural_venue_cafe.v1",
+    "category_id": "CAFE",
+    "number": 25,
+    "name": "Cultural-venue cafe",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "venue visitors, staff and authorized users exposed to the same governed internal zone during venue operating and programming hours",
+    "decision_object": "open museum, library or theater/performing-arts place with an unambiguous exact-intersection building assignment plus a separately observed cafe or concession opportunity",
+    "required_gate": "named venue, internal/public access zone and live food-service opportunity",
+    "access_contract": "EXACT_CULTURAL_VENUE_AND_INTERNAL_ZONE_CONTAINMENT",
+    "primary_signals": [
+      "TOURIST_VISITOR",
+      "EVENT_SEASONAL",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE",
+      "TRANSIT_PASSENGER"
+    ],
+    "demand_clocks": [
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "venue presence cannot replace attendance",
+      "nearby residents cannot be added to internal demand"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_ATTENDANCE_PROGRAM_AND_OPPORTUNITY"
+  },
+  {
+    "archetype_id": "us.cafe.destination_flagship.v1",
+    "category_id": "CAFE",
+    "number": 26,
+    "name": "Destination flagship",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Primary evidence components: TOURIST_VISITOR, SHOPPING_ERRAND",
+    "decision_object": "available and legally usable large-format public cafe unit supporting the declared flagship, event, queue, accessibility, egress and back-of-house program",
+    "required_gate": "destination-access contract plus flagship-scale available property and program feasibility",
+    "access_contract": "MULTIMODAL_DESTINATION_ACCESS",
+    "primary_signals": [
+      "TOURIST_VISITOR",
+      "SHOPPING_ERRAND"
+    ],
+    "supporting_signals": [
+      "TRANSIT_PASSENGER",
+      "HOSPITALITY_GUEST",
+      "EVENT_SEASONAL",
+      "DAYTIME_WORKER"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE"
+    ],
+    "demand_clocks": [
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "destination place density cannot replace visits",
+      "property scale cannot add customer demand"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_DESTINATION_VISITS_AND_SHOPPING_TRIPS"
+  },
+  {
+    "archetype_id": "us.cafe.destination_high_street_cafe.v1",
+    "category_id": "CAFE",
+    "number": 23,
+    "name": "Destination high-street cafe",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "shopping, culture, leisure, visitor and supporting resident-worker origins exposed to the corridor",
+    "decision_object": "independently accessed street-facing cafe unit on a contiguous named retail, culture or leisure corridor",
+    "required_gate": "governed destination corridor, storefront access and appropriate high-street unit",
+    "access_contract": "NAMED_CORRIDOR_PEDESTRIAN_NETWORK_SCREENING",
+    "primary_signals": [
+      "SHOPPING_ERRAND",
+      "TOURIST_VISITOR"
+    ],
+    "supporting_signals": [
+      "TRANSIT_PASSENGER",
+      "DAYTIME_WORKER",
+      "EVENING_NIGHT_CONVENIENCE"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE",
+      "HOSPITALITY_GUEST",
+      "EVENT_SEASONAL"
+    ],
+    "demand_clocks": [
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "place composition cannot create visitor counts",
+      "tourism guide labels cannot create a numeric score"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_SHOPPING_AND_VISITOR_TRIPS"
+  },
+  {
+    "archetype_id": "us.cafe.destination_roastery_flagship.v1",
+    "category_id": "CAFE",
+    "number": 27,
+    "name": "Destination roastery flagship",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Primary evidence components: TOURIST_VISITOR, SHOPPING_ERRAND",
+    "decision_object": "destination flagship with observed co-located roasting or production, compatible legal use, building systems, storage, emissions/fire controls and loading access",
+    "required_gate": "#26 destination contract plus production, loading, zoning and program feasibility",
+    "access_contract": "REUSED_FLAGSHIP_CUSTOMER_ACCESS_PLUS_SEPARATE_LOGISTICS_FEASIBILITY",
+    "primary_signals": [
+      "TOURIST_VISITOR",
+      "SHOPPING_ERRAND"
+    ],
+    "supporting_signals": [
+      "TRANSIT_PASSENGER",
+      "HOSPITALITY_GUEST",
+      "EVENT_SEASONAL",
+      "DAYTIME_WORKER"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE"
+    ],
+    "demand_clocks": [
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "production capacity cannot add customer demand",
+      "roastery program cannot create visitor counts"
+    ],
+    "computation_state": "NOT_COMPUTED_REUSES_26_CUSTOMER_DEMAND_WHICH_IS_MISSING"
+  },
+  {
+    "archetype_id": "us.cafe.drive_through.v1",
+    "category_id": "CAFE",
+    "number": 8,
+    "name": "Drive-through coffee",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "vehicle origins and compatible pass-by routes",
+    "decision_object": "zoning- and geometry-feasible parcel with legal access, turning and queue stacking",
+    "required_gate": "legally feasible parcel with governed ingress, egress, turn, queue and directed-drive catchment",
+    "access_contract": "DIRECTED_DRIVE_NETWORK",
+    "primary_signals": [
+      "VEHICLE_PASSBY"
+    ],
+    "supporting_signals": [
+      "RESIDENT_BASE",
+      "DAYTIME_WORKER"
+    ],
+    "context_only_signals": [
+      "SHOPPING_ERRAND"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "walkability or population density cannot replace vehicle flow",
+      "road proximity cannot replace legal access"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_TRAFFIC_TURN_QUEUE_AND_ENTITLEMENT"
+  },
+  {
+    "archetype_id": "us.cafe.hospital_captive_kiosk.v1",
+    "category_id": "CAFE",
+    "number": 14,
+    "name": "Hospital-captive kiosk",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "staff, patient-family and visitor flow on governed accessible internal connections",
+    "decision_object": "current food-service opportunity inside the named medical facility",
+    "required_gate": "named facility/building/access zone and live food-service opportunity",
+    "access_contract": "MEDICAL_FACILITY_CONTAINMENT_AND_INTERNAL_ACCESS",
+    "primary_signals": [
+      "MEDICAL_POPULATION",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "EVENING_NIGHT_CONVENIENCE",
+      "DAYTIME_WORKER"
+    ],
+    "context_only_signals": [
+      "TRANSIT_PASSENGER"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "OVERNIGHT",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "nearby population cannot replace facility flow",
+      "healthcare jobs cannot create patient or visitor counts"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_FACILITY_FLOW_AND_OPPORTUNITY"
+  },
+  {
+    "archetype_id": "us.cafe.hotel_lobby_cafe.v1",
+    "category_id": "CAFE",
+    "number": 24,
+    "name": "Hotel-lobby cafe",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "hotel guests, workers, meetings and authorized visitors exposed to the same lobby or governed internal circulation",
+    "decision_object": "open hotel place with an unambiguous exact-intersection building assignment plus a separately observed lobby cafe opportunity",
+    "required_gate": "named hotel, lobby/internal zone, access regime and live operator opportunity",
+    "access_contract": "EXACT_HOTEL_AND_LOBBY_CONTAINMENT",
+    "primary_signals": [
+      "HOSPITALITY_GUEST",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER",
+      "TOURIST_VISITOR",
+      "EVENT_SEASONAL"
+    ],
+    "context_only_signals": [
+      "TRANSIT_PASSENGER"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "OVERNIGHT",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "hotel count or reviews cannot replace occupied rooms",
+      "nearby visitors cannot be added without lobby access"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_ROOMS_OCCUPANCY_MEETINGS_AND_OPPORTUNITY"
+  },
+  {
+    "archetype_id": "us.cafe.industrial_logistics_district_counter.v1",
+    "category_id": "CAFE",
+    "number": 6,
+    "name": "Industrial / logistics district counter",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "shift workers, drivers and industrial employees",
+    "decision_object": "publicly accessible storefront or counter with a safe legal walking route",
+    "required_gate": "industrial/logistics land-use-qualified district plus safe legal route to a verified workplace gate",
+    "access_contract": "SAFE_PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "INDUSTRIAL_SHIFT"
+    ],
+    "supporting_signals": [
+      "TRANSIT_PASSENGER",
+      "EVENING_NIGHT_CONVENIENCE"
+    ],
+    "context_only_signals": [
+      "DAYTIME_WORKER",
+      "RESIDENT_BASE"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "PM_COMMUTE",
+      "OVERNIGHT"
+    ],
+    "prohibited_substitutions": [
+      "generic construction jobs cannot qualify an industrial district",
+      "blue-collar count cannot replace shift or driver flow"
+    ],
+    "computation_state": "BLOCKED_CURRENT_BLUE_COLLAR_PROXY_REJECTED"
+  },
+  {
+    "archetype_id": "us.cafe.mall_food_court_kiosk.v1",
+    "category_id": "CAFE",
+    "number": 16,
+    "name": "Mall / food-court kiosk",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "shoppers and employees using the same enclosed circulation",
+    "decision_object": "current internal-circulation or food-court unit",
+    "required_gate": "named mall, internal circulation/food-court zone and live leasable unit",
+    "access_contract": "ENCLOSED_RETAIL_INTERNAL_NETWORK",
+    "primary_signals": [
+      "SHOPPING_ERRAND",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE",
+      "TRANSIT_PASSENGER"
+    ],
+    "demand_clocks": [
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "nearby retail places cannot replace mall trips",
+      "external population cannot be added to internal circulation"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_MALL_TRIPS_INTERNAL_FLOW_AND_UNIT"
+  },
+  {
+    "archetype_id": "us.cafe.medical_district_street_counter.v1",
+    "category_id": "CAFE",
+    "number": 5,
+    "name": "Medical-district street counter",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "staff, visitors and patient-family access",
+    "decision_object": "public storefront outside hospital control",
+    "required_gate": "public storefront routed to accessible public medical entrances within the 5/8-minute contract",
+    "access_contract": "PUBLIC_ENTRANCE_PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "MEDICAL_POPULATION"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER",
+      "EVENING_NIGHT_CONVENIENCE",
+      "TRANSIT_PASSENGER"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "OVERNIGHT"
+    ],
+    "prohibited_substitutions": [
+      "healthcare jobs cannot replace patient or visitor flow",
+      "staff-only entrances cannot create public demand"
+    ],
+    "computation_state": "PARTIAL_HEALTHCARE_JOB_PROXY_NO_PATIENT_VISITOR_FLOW"
+  },
+  {
+    "archetype_id": "us.cafe.mobile_street_cart.v1",
+    "category_id": "CAFE",
+    "number": 18,
+    "name": "Permitted mobile street cart",
+    "decision_track": "LIVE_OPPORTUNITY",
+    "mission": "pedestrian flow reaching the operating point",
+    "decision_object": "current permitted unit at a legally eligible point and time",
+    "required_gate": "current permit/operator, legally eligible exact location and operating window",
+    "access_contract": "PERMITTED_POINT_PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "TRANSIT_PASSENGER",
+      "RESIDENT_BASE",
+      "DAYTIME_WORKER",
+      "EVENT_SEASONAL"
+    ],
+    "supporting_signals": [
+      "EVENING_NIGHT_CONVENIENCE",
+      "TOURIST_VISITOR"
+    ],
+    "context_only_signals": [
+      "SHOPPING_ERRAND"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "components are alternative missions and must not be summed",
+      "strong demand cannot create a legal vending right"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_CURRENT_PERMIT_LOCATION_AND_WINDOW"
+  },
+  {
+    "archetype_id": "us.cafe.neighborhood_seated.v1",
+    "category_id": "CAFE",
+    "number": 21,
+    "name": "Neighborhood seated coffeehouse",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "resident, social, study and light-work origins using a planned local visit",
+    "decision_object": "independently accessed street-facing cafe unit capable of the brand's seating, accessibility, restroom, service and dwell requirements",
+    "required_gate": "public seated storefront with neighborhood pedestrian catchment and suitable unit/program",
+    "access_contract": "PEDESTRIAN_NETWORK_MAXIMAL_CELL_ENVELOPE",
+    "primary_signals": [
+      "RESIDENT_BASE"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER",
+      "EVENING_NIGHT_CONVENIENCE",
+      "SHOPPING_ERRAND"
+    ],
+    "context_only_signals": [
+      "TRANSIT_PASSENGER",
+      "TOURIST_VISITOR"
+    ],
+    "demand_clocks": [
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "resident count cannot establish seated dwell, study or social occasion",
+      "takeaway demand cannot be increased merely because the unit is larger"
+    ],
+    "computation_state": "PARTIAL_INHERITED_RESIDENT_PROXY_DWELL_OCCASION_MISSING"
+  },
+  {
+    "archetype_id": "us.cafe.neighborhood_takeaway.v1",
+    "category_id": "CAFE",
+    "number": 1,
+    "name": "Neighborhood main-street takeaway",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "resident and routine origins",
+    "decision_object": "independent street-facing storefront on a walkable neighborhood retail street",
+    "required_gate": "public street-facing storefront with governed pedestrian-network catchment",
+    "access_contract": "PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "RESIDENT_BASE"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER",
+      "EVENING_NIGHT_CONVENIENCE"
+    ],
+    "context_only_signals": [
+      "TRANSIT_PASSENGER",
+      "SHOPPING_ERRAND",
+      "TOURIST_VISITOR"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "tourist places cannot replace resident routine",
+      "night-light cannot replace night demand"
+    ],
+    "computation_state": "COMPUTED_RESIDENT_PROXY_SUPPORTING_COMPONENTS_PARTIAL"
+  },
+  {
+    "archetype_id": "us.cafe.office_district_coffeehouse.v1",
+    "category_id": "CAFE",
+    "number": 22,
+    "name": "Office-district coffeehouse",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "weekday office-worker workplace blocks",
+    "decision_object": "independently accessed street-facing coffeehouse unit capable of seating, meetings, accessibility, restroom and longer dwell",
+    "required_gate": "public seated storefront routed to qualified workplaces with suitable unit/program",
+    "access_contract": "REUSED_OFFICE_PEDESTRIAN_NETWORK_SCREENING",
+    "primary_signals": [
+      "DAYTIME_WORKER"
+    ],
+    "supporting_signals": [
+      "TRANSIT_PASSENGER",
+      "SHOPPING_ERRAND"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE",
+      "TOURIST_VISITOR"
+    ],
+    "demand_clocks": [
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING"
+    ],
+    "prohibited_substitutions": [
+      "office jobs cannot establish meetings, dwell or occupancy",
+      "street demand cannot be counted again as lobby demand"
+    ],
+    "computation_state": "PARTIAL_INHERITED_OFFICE_JOB_PROXY_DWELL_MEETINGS_MISSING"
+  },
+  {
+    "archetype_id": "us.cafe.office_district_street_express.v1",
+    "category_id": "CAFE",
+    "number": 3,
+    "name": "Office-district street express",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "weekday worker buildings and trip ends",
+    "decision_object": "street-facing unit with independent public entrance outside host control",
+    "required_gate": "independent street storefront routed to qualified workplace access proxies within the 5/8-minute contract",
+    "access_contract": "PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "DAYTIME_WORKER"
+    ],
+    "supporting_signals": [
+      "TRANSIT_PASSENGER"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE",
+      "SHOPPING_ERRAND",
+      "TOURIST_VISITOR"
+    ],
+    "demand_clocks": [
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE"
+    ],
+    "prohibited_substitutions": [
+      "resident population cannot replace worker demand",
+      "jobs cannot be labelled observed attendance"
+    ],
+    "computation_state": "COMPUTED_WORKPLACE_JOB_PROXY_ATTENDANCE_MISSING"
+  },
+  {
+    "archetype_id": "us.cafe.office_lobby_counter.v1",
+    "category_id": "CAFE",
+    "number": 12,
+    "name": "Office-lobby counter",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "occupants, registered visitors and explicitly connected concourse users",
+    "decision_object": "landlord-controlled building or concourse unit",
+    "required_gate": "named office building, controlled lobby/concourse zone and live landlord unit",
+    "access_contract": "BUILDING_AND_CONNECTED_CONCOURSE_CONTAINMENT",
+    "primary_signals": [
+      "CAPTIVE_HOST",
+      "DAYTIME_WORKER"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [
+      "TRANSIT_PASSENGER"
+    ],
+    "demand_clocks": [
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE"
+    ],
+    "prohibited_substitutions": [
+      "external resident or street population cannot be added as lobby demand",
+      "jobs cannot replace occupancy or access"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_BUILDING_OCCUPANCY_INTERNAL_FLOW_AND_UNIT"
+  },
+  {
+    "archetype_id": "us.cafe.private_members_club_cafe.v1",
+    "category_id": "CAFE",
+    "number": 29,
+    "name": "Private members-club cafe",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Primary evidence components: CAPTIVE_HOST",
+    "decision_object": "governed private club with observed membership/guest access, exact internal cafe zone and active time-bounded operator opportunity",
+    "required_gate": "named club, membership/access regime, internal zone and operator opportunity",
+    "access_contract": "MEMBERSHIP_CONTROLLED_HOST_CONTAINMENT",
+    "primary_signals": [
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "HOSPITALITY_GUEST",
+      "EVENT_SEASONAL"
+    ],
+    "context_only_signals": [
+      "DAYTIME_WORKER",
+      "TOURIST_VISITOR"
+    ],
+    "demand_clocks": [
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "nearby affluence cannot create club members",
+      "club presence cannot create an operating right"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_MEMBERSHIP_USAGE_AND_OPPORTUNITY"
+  },
+  {
+    "archetype_id": "us.cafe.public_space_kiosk.v1",
+    "category_id": "CAFE",
+    "number": 19,
+    "name": "Public-space kiosk",
+    "decision_track": "LIVE_OPPORTUNITY",
+    "mission": "accessible park or plaza paths, entrances and hosted activity",
+    "decision_object": "exact current concession or RFP site",
+    "required_gate": "active concession/RFP and exact park, plaza or municipal-space site",
+    "access_contract": "PUBLIC_SPACE_PATH_NETWORK",
+    "primary_signals": [
+      "EVENT_SEASONAL",
+      "TOURIST_VISITOR",
+      "RESIDENT_BASE"
+    ],
+    "supporting_signals": [
+      "TRANSIT_PASSENGER",
+      "SHOPPING_ERRAND"
+    ],
+    "context_only_signals": [
+      "EVENING_NIGHT_CONVENIENCE"
+    ],
+    "demand_clocks": [
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "park interior supply cannot replace accessible entrance demand",
+      "attractive public space cannot create availability"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_CONCESSION_ATTENDANCE_AND_CALENDAR"
+  },
+  {
+    "archetype_id": "us.cafe.regional_terminal_ferry_concourse.v1",
+    "category_id": "CAFE",
+    "number": 10,
+    "name": "Regional terminal / ferry concourse",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "scheduled passengers and workers traversing the same terminal circulation",
+    "decision_object": "current concession space in the governed terminal zone",
+    "required_gate": "named terminal/concourse/boarding zone and live concession",
+    "access_contract": "TERMINAL_CIRCULATION_AND_SERVICE_NETWORK",
+    "primary_signals": [
+      "TRANSIT_PASSENGER",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER",
+      "TOURIST_VISITOR"
+    ],
+    "context_only_signals": [
+      "HOSPITALITY_GUEST"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "nearby population cannot replace terminal passenger flow",
+      "scheduled service cannot replace traversals"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_PASSENGER_FLOW_AND_LIVE_CONCESSION"
+  },
+  {
+    "archetype_id": "us.cafe.reservation_coffee_tea_salon.v1",
+    "category_id": "CAFE",
+    "number": 28,
+    "name": "Reservation coffee / tea salon",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Primary evidence components: TOURIST_VISITOR, SHOPPING_ERRAND",
+    "decision_object": "available public unit supporting reservation, table service, long dwell, accessibility, restroom, kitchen/service and declared session program",
+    "required_gate": "destination contract plus reservation/table-service unit and program feasibility",
+    "access_contract": "REUSED_DESTINATION_ACCESS_WITH_SALON_UNIT_QUALIFICATION",
+    "primary_signals": [
+      "TOURIST_VISITOR",
+      "SHOPPING_ERRAND"
+    ],
+    "supporting_signals": [
+      "HOSPITALITY_GUEST",
+      "EVENT_SEASONAL",
+      "TRANSIT_PASSENGER"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE",
+      "DAYTIME_WORKER"
+    ],
+    "demand_clocks": [
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "affluence or property price cannot create reservations",
+      "planned occasion cannot be inferred from generic footfall"
+    ],
+    "computation_state": "NOT_COMPUTED_REUSES_26_ACCESS_BUT_OCCASION_DEMAND_IS_MISSING"
+  },
+  {
+    "archetype_id": "us.cafe.residential_amenity_cafe.v1",
+    "category_id": "CAFE",
+    "number": 30,
+    "name": "Residential amenity cafe",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Primary evidence components: CAPTIVE_HOST, RESIDENT_BASE",
+    "decision_object": "named residential building or complex with observed cafe amenity, internal access regime and active operator authorization",
+    "required_gate": "named residential building/complex, amenity access zone and live operator opportunity",
+    "access_contract": "RESIDENTIAL_HOST_CONTAINMENT",
+    "primary_signals": [
+      "CAPTIVE_HOST",
+      "RESIDENT_BASE"
+    ],
+    "supporting_signals": [
+      "EVENING_NIGHT_CONVENIENCE"
+    ],
+    "context_only_signals": [
+      "DAYTIME_WORKER"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "neighborhood residents cannot replace authorized building occupants",
+      "residential units cannot create amenity usage"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_BUILDING_OCCUPANCY_AMENITY_USAGE_AND_OPPORTUNITY"
+  },
+  {
+    "archetype_id": "us.cafe.retail_shop_in_shop.v1",
+    "category_id": "CAFE",
+    "number": 17,
+    "name": "Retail shop-in-shop",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "trips and employees attached to the same store footprint",
+    "decision_object": "current partner-authorized internal operating opportunity",
+    "required_gate": "named partner store, internal location and live operating agreement",
+    "access_contract": "PARTNER_STORE_CONTAINMENT",
+    "primary_signals": [
+      "SHOPPING_ERRAND",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER"
+    ],
+    "context_only_signals": [
+      "RESIDENT_BASE"
+    ],
+    "demand_clocks": [
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "store count or reviews cannot replace store trips",
+      "nearby shoppers cannot be added without entering the host"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_PARTNER_TRIPS_AND_AGREEMENT"
+  },
+  {
+    "archetype_id": "us.cafe.scheduled_rail_adjacent_street_express.v1",
+    "category_id": "CAFE",
+    "number": 2,
+    "name": "Scheduled-rail-adjacent street express",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "directional passenger entry and exit flow",
+    "decision_object": "independent street storefront outside controlled station circulation",
+    "required_gate": "independent street storefront routed to governed passenger entrance within the 3/5-minute contract",
+    "access_contract": "ENTRANCE_TO_STOREFRONT_PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "TRANSIT_PASSENGER"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER",
+      "RESIDENT_BASE"
+    ],
+    "context_only_signals": [
+      "TOURIST_VISITOR"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "scheduled departures cannot be labelled passenger population",
+      "station centroid cannot replace entrance routing"
+    ],
+    "computation_state": "PARTIAL_SCHEDULED_SERVICE_PROXY_NO_PASSENGER_COUNTS"
+  },
+  {
+    "archetype_id": "us.cafe.shopping_center_inline.v1",
+    "category_id": "CAFE",
+    "number": 7,
+    "name": "Shopping-center inline cafe",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "trips attached to the named center and its internal public paths",
+    "decision_object": "exterior-access standard-market unit in a governed open-air or parking-oriented retail center",
+    "required_gate": "named open-air or parking-oriented center with verified exterior unit and internal public path",
+    "access_contract": "HOST_CONTAINMENT_WITH_INTERNAL_WALK_AND_DRIVE_CONTEXT",
+    "primary_signals": [
+      "SHOPPING_ERRAND"
+    ],
+    "supporting_signals": [
+      "RESIDENT_BASE",
+      "DAYTIME_WORKER",
+      "VEHICLE_PASSBY"
+    ],
+    "context_only_signals": [
+      "TRANSIT_PASSENGER"
+    ],
+    "demand_clocks": [
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "retail place count cannot replace center trips",
+      "drive and center trips must not be double counted"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_QUALIFIED_UNIT_AND_CENTER_TRIPS"
+  },
+  {
+    "archetype_id": "us.cafe.subway_station_kiosk.v1",
+    "category_id": "CAFE",
+    "number": 9,
+    "name": "In-station subway kiosk",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "entries, exits and transfers traversing the same circulation side",
+    "decision_object": "licensed internal retail space in the named station circulation zone",
+    "required_gate": "named station, fare side, circulation zone and live licensed retail opportunity",
+    "access_contract": "STATION_CIRCULATION_CONTAINMENT",
+    "primary_signals": [
+      "TRANSIT_PASSENGER",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [
+      "DAYTIME_WORKER",
+      "RESIDENT_BASE",
+      "TOURIST_VISITOR"
+    ],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "OVERNIGHT",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "external walkshed cannot be added as captive demand",
+      "station service cannot replace internal passenger traversals"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_INTERNAL_FLOW_AND_LIVE_SPACE"
+  },
+  {
+    "archetype_id": "us.cafe.visitor_attraction_cafe.v1",
+    "category_id": "CAFE",
+    "number": 31,
+    "name": "Visitor-attraction cafe",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Primary evidence components: TOURIST_VISITOR, CAPTIVE_HOST",
+    "decision_object": "governed visitor attraction outside hotel, culture, arena and terminal precedence with exact control zone, accessible internal path and active opportunity",
+    "required_gate": "named attraction, visitor circulation zone and live food-service opportunity",
+    "access_contract": "ATTRACTION_CONTROL_ZONE_AND_INTERNAL_CIRCULATION",
+    "primary_signals": [
+      "TOURIST_VISITOR",
+      "CAPTIVE_HOST"
+    ],
+    "supporting_signals": [
+      "EVENT_SEASONAL",
+      "DAYTIME_WORKER"
+    ],
+    "context_only_signals": [
+      "TRANSIT_PASSENGER",
+      "HOSPITALITY_GUEST"
+    ],
+    "demand_clocks": [
+      "MIDDAY",
+      "PM_COMMUTE",
+      "EVENING",
+      "WEEKEND_DAY"
+    ],
+    "prohibited_substitutions": [
+      "attraction presence/reviews cannot replace admissions",
+      "nearby tourists cannot be added without entering the attraction"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_ADMISSIONS_CIRCULATION_AND_OPPORTUNITY"
+  },
+  {
+    "archetype_id": "us.cafe.workplace_captive_counter.v1",
+    "category_id": "CAFE",
+    "number": 15,
+    "name": "Workplace-captive counter",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "employees and authorized visitors inside the same secured workplace",
+    "decision_object": "operator-approved internal location in the controlled workplace",
+    "required_gate": "named controlled workplace, worker access zone and live operator agreement",
+    "access_contract": "SECURED_WORKPLACE_CONTAINMENT",
+    "primary_signals": [
+      "CAPTIVE_HOST",
+      "INDUSTRIAL_SHIFT"
+    ],
+    "supporting_signals": [
+      "DAYTIME_WORKER",
+      "EVENING_NIGHT_CONVENIENCE"
+    ],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "EARLY_MORNING",
+      "AM_COMMUTE",
+      "MIDDAY",
+      "PM_COMMUTE",
+      "OVERNIGHT"
+    ],
+    "prohibited_substitutions": [
+      "public-street population cannot be added",
+      "job count cannot replace authorized occupancy or shift attendance"
+    ],
+    "computation_state": "NOT_COMPUTED_MISSING_WORKPLACE_OCCUPANCY_SHIFT_AND_AGREEMENT"
+  },
+  {
+    "archetype_id": "us.restaurant.airport_terminal_concession.v1",
+    "category_id": "RESTAURANT",
+    "number": 21,
+    "name": "Airport-terminal concession",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Passenger and airport-worker meals under terminal rules",
+    "decision_object": "AIRPORT_TERMINAL_SECURITY_SIDE_AND_PACKAGE",
+    "required_gate": "AIRPORT_TERMINAL_SECURITY_SIDE_AND_ACTIVE_PACKAGE",
+    "access_contract": "TERMINAL_SECURITY_SIDE_CONTAINMENT",
+    "primary_signals": [
+      "EXPOSED_PASSENGER_AND_WORKER_FLOWS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "FLIGHT_AND_WORKER_WINDOWS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.arena_event_concession.v1",
+    "category_id": "RESTAURANT",
+    "number": 29,
+    "name": "Arena/event concession",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Ticketed event demand within venue circulation",
+    "decision_object": "VENUE_CONCOURSE_ZONE_AND_CONCESSION_PACKAGE",
+    "required_gate": "VENUE_CONCOURSE_ZONE_PACKAGE_AND_CALENDAR",
+    "access_contract": "EVENT_VENUE_ZONE_CONTAINMENT",
+    "primary_signals": [
+      "TICKETED_ATTENDEES_AND_EVENT_WORKERS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "GOVERNED_EVENTS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.arterial_parking_led_inline.v1",
+    "category_id": "RESTAURANT",
+    "number": 15,
+    "name": "Arterial parking-led inline restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Vehicle-accessible meal without a drive-through lane",
+    "decision_object": "PARKING_SUPPORTED_RESTAURANT_UNIT",
+    "required_gate": "PARKING_SUPPORTED_UNIT_WITH_LAWFUL_INGRESS_EGRESS",
+    "access_contract": "DIRECTED_DRIVE_NETWORK",
+    "primary_signals": [
+      "ROAD_NETWORK_ORIGINS_AND_PASS_BY_FLOW"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "MEAL_DAYPARTS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::PROPERTY_AND_ROAD_GATE_REQUIRED"
+  },
+  {
+    "archetype_id": "us.restaurant.assembly_line_fast_casual.v1",
+    "category_id": "RESTAURANT",
+    "number": 36,
+    "name": "Assembly-line fast-casual restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "High-throughput customizable meal with meaningful takeaway and limited seated use",
+    "decision_object": "PUBLIC_HIGH_THROUGHPUT_LIMITED_SERVICE_UNIT",
+    "required_gate": "PUBLIC_HIGH_THROUGHPUT_UNIT_WITH_QUEUE_PICKUP_AND_LIMITED_SEATING_FEASIBILITY",
+    "access_contract": "PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "RESIDENTS_WORKERS_STUDENTS_AND_PICKUP_TRIPS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "WEEKDAY_LUNCH_DINNER_AND_WEEKEND_SEPARATE"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "COMPUTED_NETWORK_CATCHMENT_PROXY_NOT_OUTCOME_CALIBRATED"
+  },
+  {
+    "archetype_id": "us.restaurant.campus_adjacent_quick_meal.v1",
+    "category_id": "RESTAURANT",
+    "number": 4,
+    "name": "Campus-adjacent quick meal",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Student, faculty and staff meals outside institutional control",
+    "decision_object": "PUBLIC_STREET_UNIT_OUTSIDE_CAMPUS_CONTROL",
+    "required_gate": "PUBLIC_UNIT_OUTSIDE_CAMPUS_CONTROL",
+    "access_contract": "CAMPUS_EDGE_PEDESTRIAN",
+    "primary_signals": [
+      "PUBLIC_CAMPUS_GATES_AND_BUILDING_ENTRANCES"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "ACADEMIC_CALENDAR_MEAL_PERIODS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.campus_captive_foodservice.v1",
+    "category_id": "RESTAURANT",
+    "number": 25,
+    "name": "Campus captive food service",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Authorized campus-population meals",
+    "decision_object": "CAMPUS_BUILDING_AND_FOODSERVICE_OPPORTUNITY",
+    "required_gate": "CAMPUS_BUILDING_ACCESS_AND_OPPORTUNITY",
+    "access_contract": "CAMPUS_INTERNAL_PATH_NETWORK",
+    "primary_signals": [
+      "AUTHORIZED_CAMPUS_POPULATION"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "ACADEMIC_CALENDAR_AND_MEALS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.cultural_venue_foodservice.v1",
+    "category_id": "RESTAURANT",
+    "number": 28,
+    "name": "Cultural-venue food service",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Venue visitor and worker meals under access rules",
+    "decision_object": "VENUE_ACCESS_ZONE_AND_CONCESSION_UNIT",
+    "required_gate": "VENUE_ACCESS_ZONE_AND_CONCESSION_UNIT",
+    "access_contract": "VENUE_ACCESS_ZONE_CONTAINMENT",
+    "primary_signals": [
+      "VENUE_VISITORS_AND_WORKERS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "VENUE_OPEN_AND_PROGRAM_WINDOWS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.delivery_pickup_production_kitchen.v1",
+    "category_id": "RESTAURANT",
+    "number": 17,
+    "name": "Delivery/pickup production kitchen",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Courier service territory and pickup without dining-led frontage",
+    "decision_object": "LEGAL_PRODUCTION_KITCHEN_UNIT",
+    "required_gate": "LEGAL_PRODUCTION_UNIT_WITH_COURIER_AND_PICKUP_ACCESS",
+    "access_contract": "TIME_DEPENDENT_COURIER_NETWORK",
+    "primary_signals": [
+      "DELIVERY_ORDERS_AND_PICKUP_ORIGINS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "ORDER_DAYPART_WITH_PREP_AND_VERTICAL_DELAY"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::PROPERTY_AND_SERVICE_NETWORK_REQUIRED"
+  },
+  {
+    "archetype_id": "us.restaurant.destination_food_corridor.v1",
+    "category_id": "RESTAURANT",
+    "number": 10,
+    "name": "Destination food-corridor restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Deliberate cuisine or food-cluster trip to a governed corridor",
+    "decision_object": "PUBLIC_RESTAURANT_UNIT_IN_GOVERNED_CORRIDOR",
+    "required_gate": "PUBLIC_UNIT_IN_OBSERVED_GOVERNED_FOOD_CORRIDOR",
+    "access_contract": "DESTINATION_CORRIDOR_MULTIMODAL",
+    "primary_signals": [
+      "OBSERVED_FOOD_DESTINATION_TRIPS_NOT_RESIDENT_ETHNICITY"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "MEAL_AND_WEEKEND_DESTINATION_WINDOWS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.drive_through_qsr.v1",
+    "category_id": "RESTAURANT",
+    "number": 16,
+    "name": "Drive-through QSR",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "En-route vehicle demand where access and stacking are feasible",
+    "decision_object": "ZONING_AND_GEOMETRY_FEASIBLE_PARCEL",
+    "required_gate": "ZONING_USE_INGRESS_ORDERING_PATH_AND_STACKING_FEASIBLE",
+    "access_contract": "DIRECTED_DRIVE_NETWORK",
+    "primary_signals": [
+      "ROAD_NETWORK_ORIGINS_AND_DIRECTIONAL_PASS_BY_FLOW"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "DAYPART_AND_LATE_NIGHT_SEPARATE"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::PARCEL_GATE_REQUIRED"
+  },
+  {
+    "archetype_id": "us.restaurant.food_hall_market_stall.v1",
+    "category_id": "RESTAURANT",
+    "number": 23,
+    "name": "Food-hall or public-market stall",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Operator-curated dining and market visits",
+    "decision_object": "NAMED_HALL_OPERATOR_AND_STALL",
+    "required_gate": "HALL_OPERATOR_STALL_AND_ACTIVE_OPPORTUNITY",
+    "access_contract": "HOST_CONTAINMENT",
+    "primary_signals": [
+      "NAMED_HOST_VISITS_AND_INTERNAL_CIRCULATION"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "HALL_MARKET_OPEN_HOURS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.high_street_evening_social.v1",
+    "category_id": "RESTAURANT",
+    "number": 9,
+    "name": "High-street evening social restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Dinner, social groups and evening corridor activity",
+    "decision_object": "PUBLIC_FULL_SERVICE_STOREFRONT",
+    "required_gate": "PUBLIC_UNIT_IN_GOVERNED_EVENING_CORRIDOR",
+    "access_contract": "EVENING_MULTIMODAL_NETWORK",
+    "primary_signals": [
+      "EVENING_CORRIDOR_VISITORS_RESIDENTS_AND_WORKERS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "EVENING_AND_WEEKEND"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.hospital_captive_foodservice.v1",
+    "category_id": "RESTAURANT",
+    "number": 26,
+    "name": "Hospital captive food service",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Staff, visitor and patient-companion meals inside medical control",
+    "decision_object": "FACILITY_ACCESS_ZONE_AND_FOODSERVICE_OPPORTUNITY",
+    "required_gate": "FACILITY_ACCESS_ZONE_AND_OPPORTUNITY",
+    "access_contract": "ACCESSIBLE_MEDICAL_CONTAINMENT",
+    "primary_signals": [
+      "STAFF_VISITORS_AND_PATIENT_COMPANIONS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "SHIFT_VISITOR_AND_SERVICE_WINDOWS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.hotel_integrated_restaurant.v1",
+    "category_id": "RESTAURANT",
+    "number": 27,
+    "name": "Hotel-integrated restaurant",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Guest, visitor and hotel-worker dining",
+    "decision_object": "HOTEL_UNIT_ACCESS_MODE_AND_OPERATING_AGREEMENT",
+    "required_gate": "HOTEL_UNIT_ACCESS_MODE_AND_OPERATING_AGREEMENT",
+    "access_contract": "HOTEL_HOST_CONTAINMENT",
+    "primary_signals": [
+      "GUESTS_VISITORS_AND_HOTEL_WORKERS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "GUEST_MEAL_AND_EVENT_WINDOWS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.industrial_logistics_shift_meal.v1",
+    "category_id": "RESTAURANT",
+    "number": 6,
+    "name": "Industrial/logistics shift-meal counter",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Shift-change, driver and industrial-worker meals",
+    "decision_object": "PUBLICLY_ACCESSIBLE_STREET_UNIT",
+    "required_gate": "SAFE_PUBLIC_ROUTE_FROM_WORKPLACE_GATE_OR_TRANSIT",
+    "access_contract": "SAFE_SHIFT_ACCESS_PEDESTRIAN",
+    "primary_signals": [
+      "WORKPLACE_GATES_SHIFT_ARRIVALS_AND_TRANSIT"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "SHIFT_CHANGE_AND_MEAL_BREAKS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.large_format_group_dining.v1",
+    "category_id": "RESTAURANT",
+    "number": 18,
+    "name": "Large-format group dining",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Planned group meals requiring larger floorplate, tables and dwell",
+    "decision_object": "LARGE_RESTAURANT_CAPABLE_UNIT",
+    "required_gate": "LARGE_RESTAURANT_FLOORPLATE_WITH_GROUP_ACCESS",
+    "access_contract": "PLANNED_GROUP_MULTIMODAL_NETWORK",
+    "primary_signals": [
+      "PLANNED_PARTIES_AND_RESERVATION_ORIGINS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "DINNER_WEEKEND_AND_OCCASION"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::PROPERTY_AND_NETWORK_GATE_REQUIRED"
+  },
+  {
+    "archetype_id": "us.restaurant.late_night_counter_service.v1",
+    "category_id": "RESTAURANT",
+    "number": 13,
+    "name": "Late-night counter-service restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Post-evening, shift and limited-hours meal demand",
+    "decision_object": "PUBLIC_STREET_FACING_UNIT_WITH_LATE_HOURS_FEASIBILITY",
+    "required_gate": "PUBLIC_UNIT_WITH_LATE_HOURS_AND_NIGHT_ACCESS_FEASIBILITY",
+    "access_contract": "NIGHTTIME_PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "NIGHTTIME_OPEN_ORIGINS_SHIFT_WORKERS_AND_TRANSIT"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "LATE_NIGHT"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.mall_food_court_unit.v1",
+    "category_id": "RESTAURANT",
+    "number": 22,
+    "name": "Mall food-court unit",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Shopping-break and mall-employee meals on shared circulation",
+    "decision_object": "MALL_INTERNAL_CIRCULATION_AND_UNIT",
+    "required_gate": "MALL_FLOOR_CIRCULATION_AND_CURRENT_UNIT",
+    "access_contract": "HOST_INTERNAL_PATH_NETWORK",
+    "primary_signals": [
+      "MALL_SHOPPERS_AND_EMPLOYEES"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "MALL_OPEN_HOURS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.medical_district_quick_meal.v1",
+    "category_id": "RESTAURANT",
+    "number": 5,
+    "name": "Medical-district street quick meal",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Staff, patient-family and visitor meals outside hospital control",
+    "decision_object": "PUBLIC_STREET_UNIT_OUTSIDE_MEDICAL_CONTROL",
+    "required_gate": "PUBLIC_UNIT_OUTSIDE_MEDICAL_CONTROL",
+    "access_contract": "MEDICAL_EDGE_ACCESSIBLE_PEDESTRIAN",
+    "primary_signals": [
+      "PUBLIC_FACILITY_ENTRANCES"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "STAFF_SHIFT_VISITOR_AND_COMPANION_WINDOWS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.mobile_food_cart_truck.v1",
+    "category_id": "RESTAURANT",
+    "number": 32,
+    "name": "Mobile food cart or truck",
+    "decision_track": "LIVE_OPPORTUNITY",
+    "mission": "Permitted mobile meal service in a legal operating window",
+    "decision_object": "LICENSED_UNIT_LEGAL_LOCATION_AND_WINDOW",
+    "required_gate": "CURRENT_LICENSE_PERMIT_LEGAL_LOCATION_UNIT_AND_HOURS",
+    "access_contract": "LEGAL_POINT_PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "PEDESTRIANS_IN_OPERATING_WINDOW"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "PERMITTED_OPERATING_WINDOW"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::OPPORTUNITY_FEED_REQUIRED"
+  },
+  {
+    "archetype_id": "us.restaurant.neighborhood_all_day_diner.v1",
+    "category_id": "RESTAURANT",
+    "number": 7,
+    "name": "Neighborhood all-day diner",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Seated breakfast-to-dinner routine and broad daypart utility",
+    "decision_object": "PUBLIC_SEATED_STOREFRONT",
+    "required_gate": "PUBLIC_SEATED_UNIT_WITH_HOURS_AND_FOOTPRINT_FEASIBILITY",
+    "access_contract": "PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "RESIDENTS_NEARBY_WORKERS_AND_LOCAL_VISITORS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "BREAKFAST_LUNCH_DINNER_OVERNIGHT_SEPARATE"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.neighborhood_casual_full_service.v1",
+    "category_id": "RESTAURANT",
+    "number": 8,
+    "name": "Neighborhood casual full-service restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Planned local meal with longer dwell and party seating",
+    "decision_object": "PUBLIC_FULL_SERVICE_STOREFRONT",
+    "required_gate": "PUBLIC_FULL_SERVICE_UNIT_WITH_PARTY_SEATING_FEASIBILITY",
+    "access_contract": "PEDESTRIAN_WITH_SEPARATE_TRANSIT_CONTEXT",
+    "primary_signals": [
+      "LOCAL_RESIDENTS_WORKERS_AND_PLANNED_PARTIES"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "DINNER_WEEKEND_AND_LUNCH_SEPARATE"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.neighborhood_qsr_takeaway.v1",
+    "category_id": "RESTAURANT",
+    "number": 1,
+    "name": "Neighborhood quick-service takeaway",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Frequent affordable meals, pickup and short resident routine",
+    "decision_object": "PUBLIC_STREET_FACING_UNIT",
+    "required_gate": "PUBLIC_STREET_FACING_RESTAURANT_UNIT",
+    "access_contract": "PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "RESIDENT_ROUTINE_AND_NEARBY_WORKERS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "MEAL_DAYPARTS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.neighborhood_seated_fast_casual.v1",
+    "category_id": "RESTAURANT",
+    "number": 35,
+    "name": "Neighborhood seated fast-casual restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Counter-ordered meal where a dining room, moderate dwell and on-premise experience are central",
+    "decision_object": "PUBLIC_SEATED_LIMITED_SERVICE_STOREFRONT",
+    "required_gate": "PUBLIC_SEATED_LIMITED_SERVICE_UNIT_WITH_DINING_ROOM_AND_EQUIPMENT_FEASIBILITY",
+    "access_contract": "PEDESTRIAN_NETWORK",
+    "primary_signals": [
+      "RESIDENTS_NEARBY_WORKERS_STUDENTS_AND_LOCAL_VISITORS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "LUNCH_DINNER_AND_WEEKEND_SEPARATE"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "COMPUTED_NETWORK_CATCHMENT_PROXY_NOT_OUTCOME_CALIBRATED"
+  },
+  {
+    "archetype_id": "us.restaurant.office_district_weekday_lunch.v1",
+    "category_id": "RESTAURANT",
+    "number": 3,
+    "name": "Office-district weekday lunch counter",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Worker lunch, pickup and limited weekday shoulder demand",
+    "decision_object": "PUBLIC_STREET_UNIT_OUTSIDE_LANDLORD_CONTROL",
+    "required_gate": "PUBLIC_UNIT_OUTSIDE_LANDLORD_CONTROL",
+    "access_contract": "WORKER_ORIGIN_PEDESTRIAN",
+    "primary_signals": [
+      "WORKER_BUILDINGS_AND_WEEKDAY_TRIP_ENDS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "WEEKDAY_LUNCH"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.office_workplace_captive_foodservice.v1",
+    "category_id": "RESTAURANT",
+    "number": 24,
+    "name": "Workplace captive food service",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Occupant and authorized-visitor meals inside a workplace",
+    "decision_object": "WORKPLACE_FACILITY_AND_OPERATOR_AGREEMENT",
+    "required_gate": "WORKPLACE_ACCESS_AND_OPERATOR_AGREEMENT",
+    "access_contract": "BUILDING_WORKPLACE_CONTAINMENT",
+    "primary_signals": [
+      "OCCUPANTS_AND_AUTHORIZED_VISITORS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "WORKPLACE_ATTENDANCE_AND_SHIFTS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.public_space_kiosk_concession.v1",
+    "category_id": "RESTAURANT",
+    "number": 33,
+    "name": "Public-space kiosk or concession",
+    "decision_track": "LIVE_OPPORTUNITY",
+    "mission": "Park, plaza or municipal-space meal service",
+    "decision_object": "ACTIVE_CONCESSION_AND_EXACT_PUBLIC_SITE",
+    "required_gate": "ACTIVE_CONCESSION_AND_EXACT_PUBLIC_SITE",
+    "access_contract": "PUBLIC_PATH_NETWORK",
+    "primary_signals": [
+      "PUBLIC_SPACE_ENTRANCES_PATHS_AND_HOSTED_ACTIVITY"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "CONCESSION_HOURS_AND_SEASON"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::OPPORTUNITY_FEED_REQUIRED"
+  },
+  {
+    "archetype_id": "us.restaurant.regional_terminal_concourse.v1",
+    "category_id": "RESTAURANT",
+    "number": 20,
+    "name": "Regional-terminal concourse restaurant",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Passenger and worker meals while waiting or transferring",
+    "decision_object": "TERMINAL_CONCOURSE_AND_CONCESSION_UNIT",
+    "required_gate": "TERMINAL_CONCOURSE_AND_CONCESSION_UNIT",
+    "access_contract": "HOST_CIRCULATION_CONTAINMENT",
+    "primary_signals": [
+      "PASSENGERS_AND_WORKERS_IN_SAME_CONCOURSE"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "SCHEDULED_SERVICE_WINDOWS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.retail_grocery_shop_in_shop.v1",
+    "category_id": "RESTAURANT",
+    "number": 30,
+    "name": "Retail/grocery shop-in-shop",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Prepared meals attached to a partner retailer trip",
+    "decision_object": "PARTNER_STORE_AND_INTERNAL_AGREEMENT",
+    "required_gate": "PARTNER_STORE_INTERNAL_UNIT_AND_AGREEMENT",
+    "access_contract": "PARTNER_STORE_CONTAINMENT",
+    "primary_signals": [
+      "STORE_TRIPS_AND_EMPLOYEES"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "PARTNER_STORE_HOURS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.scheduled_rail_adjacent_street_express.v1",
+    "category_id": "RESTAURANT",
+    "number": 2,
+    "name": "Scheduled-rail-adjacent street express",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Very short-dwell meals before entry or after exit",
+    "decision_object": "PUBLIC_STREET_UNIT_OUTSIDE_STATION_CONTROL",
+    "required_gate": "OUTSIDE_STATION_CONTROL_AND_ROUTED_TO_GOVERNED_ENTRANCE",
+    "access_contract": "ENTRANCE_TO_STOREFRONT_PEDESTRIAN",
+    "primary_signals": [
+      "SCHEDULED_RAIL_ENTRANCE_FLOW"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "DIRECTIONAL_COMMUTE_AND_MEAL_DAYPART"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.seasonal_market_pop_up.v1",
+    "category_id": "RESTAURANT",
+    "number": 34,
+    "name": "Seasonal market or pop-up stall",
+    "decision_track": "LIVE_OPPORTUNITY",
+    "mission": "Time-bounded market, night-market or event meal service",
+    "decision_object": "ACTIVE_VENDOR_OPPORTUNITY_AND_DATES",
+    "required_gate": "NAMED_OPERATOR_ACTIVE_VENDOR_OPPORTUNITY_DATES_AND_STALL",
+    "access_contract": "EVENT_MARKET_CONTAINMENT",
+    "primary_signals": [
+      "EVENT_MARKET_ATTENDEES_AND_WORKERS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "ACTIVE_EVENT_DATES_AND_HOURS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::OPPORTUNITY_FEED_REQUIRED"
+  },
+  {
+    "archetype_id": "us.restaurant.shared_kitchen_operator_suite.v1",
+    "category_id": "RESTAURANT",
+    "number": 31,
+    "name": "Shared/managed kitchen suite",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Production and delivery through a managed kitchen operator",
+    "decision_object": "KITCHEN_OPERATOR_SUITE_AND_SERVICE_AGREEMENT",
+    "required_gate": "OPERATOR_KITCHEN_SUITE_AND_SERVICE_AGREEMENT",
+    "access_contract": "OPERATOR_SERVICE_TERRITORY",
+    "primary_signals": [
+      "DELIVERY_ORDERS_ALLOWED_BY_OPERATOR"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "ORDER_DAYPART_WITH_PREP_AND_VERTICAL_DELAY"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.shopping_center_inline.v1",
+    "category_id": "RESTAURANT",
+    "number": 14,
+    "name": "Open-air shopping-center inline restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Center-linked errands, families and shared parking trips",
+    "decision_object": "EXTERIOR_ENTRANCE_STANDARD_MARKET_UNIT",
+    "required_gate": "EXTERIOR_ENTRANCE_UNIT_IN_GOVERNED_OPEN_AIR_CENTER",
+    "access_contract": "CENTER_CONTAINMENT_WITH_SEPARATE_DRIVE_CONTEXT",
+    "primary_signals": [
+      "NAMED_CENTER_TRIPS_AND_INTERNAL_PUBLIC_PATHS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "CENTER_OPEN_HOURS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::PROPERTY_AND_CENTER_GATE_REQUIRED"
+  },
+  {
+    "archetype_id": "us.restaurant.subway_station_internal_quick_service.v1",
+    "category_id": "RESTAURANT",
+    "number": 19,
+    "name": "In-station quick service",
+    "decision_track": "CONTROLLED_HOST",
+    "mission": "Passenger meals within station circulation",
+    "decision_object": "STATION_CIRCULATION_SIDE_AND_LICENSED_UNIT",
+    "required_gate": "STATION_SIDE_AND_LICENSED_UNIT",
+    "access_contract": "HOST_CIRCULATION_CONTAINMENT",
+    "primary_signals": [
+      "PASSENGERS_TRAVERSING_SAME_CIRCULATION_SIDE"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "SERVICE_AND_DIRECTIONAL_PASSENGER_WINDOWS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::HOST_CONTEXT_ONLY"
+  },
+  {
+    "archetype_id": "us.restaurant.theater_event_district_pre_post.v1",
+    "category_id": "RESTAURANT",
+    "number": 11,
+    "name": "Theater/event-district pre/post restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Time-bounded meals linked to nearby performances or events",
+    "decision_object": "PUBLIC_UNIT_OUTSIDE_VENUE_CONTROL",
+    "required_gate": "PUBLIC_UNIT_OUTSIDE_VENUE_CONTROL",
+    "access_contract": "VENUE_ENTRANCE_PEDESTRIAN",
+    "primary_signals": [
+      "NAMED_VENUE_ENTRANCES_AND_GOVERNED_EVENTS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "PRE_AND_POST_EVENT_WINDOWS"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  },
+  {
+    "archetype_id": "us.restaurant.visitor_district_all_day.v1",
+    "category_id": "RESTAURANT",
+    "number": 12,
+    "name": "Visitor-district all-day restaurant",
+    "decision_track": "OPEN_MARKET_SITE",
+    "mission": "Meals serving visitor accommodation and attraction itineraries",
+    "decision_object": "PUBLIC_RESTAURANT_STOREFRONT",
+    "required_gate": "PUBLIC_UNIT_NEAR_GOVERNED_ACCOMMODATION_OR_ATTRACTION_ORIGIN",
+    "access_contract": "VISITOR_ITINERARY_PEDESTRIAN",
+    "primary_signals": [
+      "ACCOMMODATION_ATTRACTION_AND_VISITOR_SERVICE_ORIGINS"
+    ],
+    "supporting_signals": [],
+    "context_only_signals": [],
+    "demand_clocks": [
+      "VISITOR_DAYTIME_AND_EVENING_SEPARATE"
+    ],
+    "prohibited_substitutions": [
+      "Identity is determined by decision object, control, access, service mechanics, footprint, demand clock, catchment or workflow; never by cuisine, brand, price or audience alone."
+    ],
+    "computation_state": "DEFINITION_NOT_COMPUTED::NETWORK_COMPUTABLE"
+  }
+]

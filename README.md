@@ -1,105 +1,316 @@
-# PULSEFIT — Commercial Decision Cockpit
+<div align="center">
 
-> **“Choose the operating model, not just the location.”**  
-> Built for the **BeyondThePrompt Hackathon** by **Momo Byte**.
+# ⚡ PULSEFIT
+### Commercial Decision Cockpit
 
----
+**“Choose the operating model, not just the location.”**
 
-## Executive Summary
+[![BeyondThePrompt](https://img.shields.io/badge/BeyondThePrompt-Hackathon-7c3aed?style=for-the-badge)](https://github.com/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=111827)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-Fast-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Vitest](https://img.shields.io/badge/Tests-18-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![License](https://img.shields.io/badge/License-MIT-111827?style=flat-square)](#-license)
 
-Most location intelligence platforms fail operators by answering the wrong question: *“Is this a busy street?”*
+**A resilience-aware strategy engine for cafés and restaurants.**
 
-A street can have massive foot traffic and still bankrupt a business if the operator selects the wrong operating model for the corridor's specific diurnal demand rhythm. **PULSEFIT** is a resilience-aware commercial strategy engine for cafés and restaurants. 
+Instead of asking **“Is this a busy street?”**, PULSEFIT asks:
 
-Instead of generating speculative revenue numbers or generic map heatmaps, PulseFit tests whether your chosen format can survive when its primary demand window weakens.
+> ### **“Can this operating model survive when its primary demand window weakens?”**
 
----
+<br>
 
-## Team Details — Momo Byte
+[🚀 Live Demo](https://pulse-fit-beyond-the-prompt-hackath.vercel.app/) •
+[📦 GitHub](https://github.com/Bhavya-Kushwaha/PulseFit_BeyondThePromptHackathon-) •
+[📚 Documentation](#-documentation)
 
-| Role | Developer | Registration No. | Institution | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| **Full-Stack & Product Architecture** | **BHAVYA KUSHWAHA** | `25BSA10157` | VIT Bhopal University | Student Developer |
-| **UI, System Design, Scoring Engine & Strategy Analytics** | **UMANG PATEL** | `25MEI10037` | VIT Bhopal University | Student Developer |
-
----
-
-## Core Product Capabilities
-
-### 1. Guided 3-Stage Decision Cockpit
-- **`01 Build`**: Configure location (NYC Canonical H3-10 or DFW Activity Envelopes), business category, operating format archetype, and risk profile. Includes business presets (*Weekend-heavy corridor*, *Commuter peak trap*, *Nightlife inverted corridor*, *All-day resilient neighborhood*).
-- **`02 Diagnose`**: The dominant **PULSEFIT DECISION** verdict. Displays:
-  - **Opportunity Fit** (Base location & audience alignment / 100)
-  - **Resilience Score** (Shock absorption against diurnal disruption / 100)
-  - **Peak Risk** (Concentration exposure in the busiest window)
-  - **Unified Demand Timeline** (Horizontal bar sequence across `AM`, `Midday`, `Evening`, `Late Night`, and `Weekend`)
-  - **Why This Works vs. Watch** (Core strategic strengths and risk triggers)
-  - **Archetype Substitution Insight**: Identifies when *“Your corridor is viable. Your format is the weak link.”* with 1-click model pivot.
-- **`03 Stress Test (Peak Trap)`**: **CAN THIS MODEL SURVIVE?**
-  - Continuous demand reduction slider (`0%` to `60%`) targeting the dominant clock.
-  - **Dynamic Demand Curve Metaphor**: Vector visualization where the concentrated peak compresses under shock while the resilient multi-peak model remains buffered.
-  - **Before $\to$ Stress $\to$ After Causal Grid**: Live score transition with immediate strategic pivot recommendation.
-
-### 2. Editorial Visual System & Custom Illustrations
-- **Light Theme Only**: Warm ivory canvas (`#fbfbfa`), pure white cards (`#ffffff`), hairline borders (`#e4e4e7`), and charcoal typography (`#09090b`).
-- **Hero Corridor Adaptive Model**: Custom vector illustration representing urban corridor streetscapes, fluctuating demand waveforms, and stable operating pathways.
-- **Archetype Iconography**: Line-based, minimal vector icons for Neighborhood, Destination, Workplace Express, Event Concession, and All-Day Bistro formats.
-- **Zero Hallucination Guarantee**: Data confidence indicator and transparent Data & Methodology drawer.
+</div>
 
 ---
 
-## Dataset Ingestion & Lineage
+## 🧭 What is PULSEFIT?
 
-PulseFit is strictly grounded in the official snapshot bundle `usa-corridors-20260906-r2`:
+Most location-intelligence products focus on **traffic, footfall and generic heatmaps**.
 
-- **65 New York City Corridors**: Canonical, non-overlapping H3-10 ownership (81,767 exact cells).
-- **72 Dallas–Fort Worth Corridors**: Activity display envelopes (H3-9 Voronoi projections).
-- **67 Archetypes**: 31 café formats + 36 restaurant formats across 3 decision tracks (`OPEN_MARKET_SITE`, `CONTROLLED_HOST`, `LIVE_OPPORTUNITY`).
-- **6,684 Corridor/Archetype Scores**: Ingested and evaluated with zero synthetic data fabrication.
+But a busy corridor does **not automatically mean a resilient business**.
+
+PULSEFIT is a **commercial decision cockpit** that evaluates the relationship between:
+
+```text
+📍 LOCATION
+     ↓
+👥 AUDIENCE
+     ↓
+🏪 OPERATING MODEL
+     ↓
+⏰ DEMAND RHYTHM
+     ↓
+⚠️ CONCENTRATION RISK
+     ↓
+🧪 STRESS TEST
+     ↓
+🎯 STRATEGIC DECISION
+```
+
+The system helps operators understand whether the **corridor is the problem — or the chosen format is the weak link.**
 
 ---
 
-## Technical Stack
+# ✨ Product Highlights
 
-- **Frontend**: React 18, TypeScript, Vite, Vanilla CSS design tokens.
-- **Engine**: 100% deterministic TypeScript scoring algorithms (`src/engine/`):
-  - `scoring.ts`: Calculates Opportunity Fit, Time Fit, and Resilience Scores.
-  - `substitution.ts`: Ranks viable alternative archetypes.
-  - `stressTest.ts`: Models clock contraction and pivot viability.
-  - `explainability.ts`: Synthesizes operator-grade rationales.
-- **Testing**: Vitest automated testing suite with 18 comprehensive tests covering data contracts, scoring bounds, and stress invariants.
+| Capability | What it does |
+|---|---|
+| 🧩 **Guided Decision Cockpit** | Build → Diagnose → Stress Test |
+| 📊 **Opportunity Fit** | Measures location + audience alignment |
+| 🛡️ **Resilience Score** | Measures ability to absorb demand disruption |
+| ⚠️ **Peak Risk** | Detects excessive dependence on the busiest window |
+| ⏱️ **Demand Timeline** | AM → Midday → Evening → Late Night → Weekend |
+| 🔄 **Archetype Substitution** | Finds stronger operating-model alternatives |
+| 🧪 **Peak Trap Stress Test** | Simulates 0–60% demand reduction |
+| 💡 **Explainable Decisions** | Shows “Why This Works” and “Watch” signals |
+| 🚫 **No Synthetic Data** | Uses the official snapshot bundle only |
 
 ---
 
-## Getting Started
+# 🎛️ The 3-Stage Decision Cockpit
 
-### Prerequisites
-- Node.js 18+
-- npm
+### `01` 🏗️ BUILD
 
-### Installation & Run Locally
+Configure the decision.
+
+- 📍 Location
+- ☕ Business category
+- 🏪 Operating format
+- 🎯 Risk profile
+- 🧠 Business presets
+
+**Presets include:**
+
+`Weekend-heavy corridor` · `Commuter peak trap` · `Nightlife inverted corridor` · `All-day resilient neighborhood`
+
+---
+
+### `02` 🔎 DIAGNOSE
+
+PULSEFIT converts the configuration into an operator-grade decision.
+
+```text
+┌─────────────────────────────────────────────┐
+│              PULSEFIT DECISION              │
+├─────────────────────────────────────────────┤
+│ Opportunity Fit        █████████░  90/100   │
+│ Resilience Score       ████████░░  82/100   │
+│ Peak Risk              ██████░░░░  61/100   │
+├─────────────────────────────────────────────┤
+│ AM → MIDDAY → EVENING → LATE NIGHT → WEEKEND│
+└─────────────────────────────────────────────┘
+```
+
+The diagnosis answers:
+
+- **Why this works**
+- **What to watch**
+- **Where demand is concentrated**
+- **Whether the operating format is the weak link**
+- **Which alternative archetype could perform better**
+
+---
+
+### `03` 🧪 STRESS TEST — “CAN THIS MODEL SURVIVE?”
+
+The **Peak Trap** stress test continuously reduces demand in the dominant clock window.
+
+```text
+Normal Demand
+████████████████████████████████
+
+        ↓  Demand Shock
+
+Stressed Demand
+██████████████████░░░░░░░░░░░░░
+
+        ↓
+
+Strategic Pivot
+🔄 Select a more resilient operating model
+```
+
+The engine evaluates the transition:
+
+**BEFORE → STRESS → AFTER**
+
+and immediately recommends a strategic pivot when the selected model becomes fragile.
+
+---
+
+# 🧠 Decision Intelligence
+
+PULSEFIT uses deterministic scoring rather than speculative revenue forecasting.
+
+### Core signals
+
+```text
+Opportunity Fit
+      +
+Time Fit
+      +
+Resilience
+      +
+Peak Dependency
+      ↓
+PULSEFIT DECISION
+```
+
+### The key idea
+
+> **A viable corridor can still have the wrong operating model.**
+
+This is the central strategic insight behind PULSEFIT.
+
+---
+
+# 🗺️ Data Foundation
+
+PULSEFIT is grounded in the official snapshot bundle:
+
+### `usa-corridors-20260906-r2`
+
+| Dataset | Coverage |
+|---|---:|
+| 🗽 NYC Corridors | **65** |
+| 🌆 Dallas–Fort Worth Corridors | **72** |
+| 🏪 Archetypes | **67** |
+| ☕ Café Formats | **31** |
+| 🍽️ Restaurant Formats | **36** |
+| 📊 Corridor/Archetype Scores | **6,684** |
+| 🧱 NYC H3-10 Exact Cells | **81,767** |
+
+### Data integrity
+
+**Zero synthetic data fabrication.**
+
+The product exposes data confidence and provides a transparent methodology drawer so operators can understand **where the decision came from.**
+
+---
+
+# 🎨 Visual Design System
+
+PULSEFIT follows an editorial, premium decision-product aesthetic.
+
+```text
+┌─────────────────────────────────────────────────┐
+│                 PULSEFIT                        │
+│          Commercial Decision Cockpit            │
+│                                                 │
+│  Warm Ivory Canvas       #FBFBFA                │
+│  White Cards             #FFFFFF                │
+│  Hairline Borders        #E4E4E7                │
+│  Charcoal Typography     #09090B                │
+│                                                 │
+│  Minimal vectors • Clean hierarchy • Data-first │
+└─────────────────────────────────────────────────┘
+```
+
+### Visual language
+
+- ✦ Editorial dashboard aesthetic
+- 📈 Demand waveform visualizations
+- 🏙️ Adaptive urban corridor illustration
+- 🧩 Minimal archetype iconography
+- 📐 Clean information hierarchy
+- 🔍 Transparent explainability
+- ☀️ Light theme only
+
+---
+
+# 🏗️ Architecture
+
+```text
+                    ┌────────────────────┐
+                    │    PULSEFIT UI     │
+                    │ React + TypeScript │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+              ┌───────────────────────────────┐
+              │     Decision Engine           │
+              ├───────────────────────────────┤
+              │ scoring.ts                    │
+              │ substitution.ts               │
+              │ stressTest.ts                 │
+              │ explainability.ts             │
+              └──────────────┬────────────────┘
+                             │
+                             ▼
+                  ┌────────────────────┐
+                  │ Official Snapshot  │
+                  │ usa-corridors...   │
+                  └────────────────────┘
+```
+
+### Engine modules
+
+| Module | Responsibility |
+|---|---|
+| `scoring.ts` | Opportunity Fit, Time Fit & Resilience |
+| `substitution.ts` | Alternative archetype ranking |
+| `stressTest.ts` | Demand contraction & pivot viability |
+| `explainability.ts` | Operator-grade strategic rationales |
+
+---
+
+# 💻 Technology Stack
+
+<div align="center">
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | React 18 |
+| **Language** | TypeScript |
+| **Build Tool** | Vite |
+| **Styling** | Vanilla CSS + Design Tokens |
+| **Scoring Engine** | Deterministic TypeScript |
+| **Testing** | Vitest |
+| **Data / Geometry** | H3-based corridor datasets |
+
+</div>
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+- **Node.js 18+**
+- **npm**
+
+## Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/Bhavya-Kushwaha/PulseFit_BeyondThePromptHackathon-.git
+
 cd PulseFit_BeyondThePromptHackathon-
 
-# Install dependencies
 npm install
+```
 
-# Start Vite local development server
+## Start Development Server
+
+```bash
 npm run dev
 ```
 
-Open https://pulse-fit-beyond-the-prompt-hackath.vercel.app/ in your browser.
+Then open:
 
-### Run Automated Tests
+**https://pulse-fit-beyond-the-prompt-hackath.vercel.app/**
+
+## Run Tests
 
 ```bash
 npm run test
 ```
 
-### Build for Production
+## Production Build
 
 ```bash
 npm run build
@@ -107,17 +318,125 @@ npm run build
 
 ---
 
-## Documentation Index
+# 🧪 Quality & Testing
 
-- [`docs/UI_AUDIT.md`](docs/UI_AUDIT.md) — Pre-implementation audit and design evolution.
-- [`docs/DATA_CONTRACT.md`](docs/DATA_CONTRACT.md) — Snapshot schema, field derivations, and H3 geometry contracts.
-- [`docs/PRODUCT_SPEC.md`](docs/PRODUCT_SPEC.md) — Mathematical formulas for Opportunity Fit, Resilience, and Peak Dependency.
-- [`docs/DEMO_SCENARIO.md`](docs/DEMO_SCENARIO.md) — 90–120 second judging presentation walkthrough.
-- [`docs/QA_REPORT.md`](docs/QA_REPORT.md) — Automated testing matrix and verification results.
-- [`docs/JUDGING_ALIGNMENT.md`](docs/JUDGING_ALIGNMENT.md) — Evaluation rubric mapping.
+PULSEFIT includes an automated Vitest suite with **18 comprehensive tests**.
+
+Testing focuses on:
+
+```text
+✓ Data contracts
+✓ Scoring bounds
+✓ Deterministic calculations
+✓ Stress-test invariants
+✓ Decision-engine behaviour
+✓ Archetype substitution logic
+```
+
+The objective is to keep the decision engine **predictable, explainable and reproducible.**
 
 ---
 
-## License
+# 📚 Documentation
 
-MIT License. Developed for the BeyondThePrompt Hackathon by Momo Byte.
+| Document | Purpose |
+|---|---|
+| `docs/UI_AUDIT.md` | UI audit & design evolution |
+| `docs/DATA_CONTRACT.md` | Snapshot schema & H3 geometry contracts |
+| `docs/PRODUCT_SPEC.md` | Mathematical scoring formulas |
+| `docs/DEMO_SCENARIO.md` | 90–120 sec judging walkthrough |
+| `docs/QA_REPORT.md` | Testing & verification matrix |
+| `docs/JUDGING_ALIGNMENT.md` | Hackathon rubric alignment |
+
+---
+
+# 👥 Team — Momo Byte
+
+<table>
+<tr>
+<th>Role</th>
+<th>Developer</th>
+<th>Registration No.</th>
+<th>Institution</th>
+</tr>
+
+<tr>
+<td><b>Full-Stack & Product Architecture</b></td>
+<td><b>BHAVYA KUSHWAHA</b></td>
+<td><code>25BSA10157</code></td>
+<td>VIT Bhopal University</td>
+</tr>
+
+<tr>
+<td><b>UI, System Design, Scoring Engine & Strategy Analytics</b></td>
+<td><b>UMANG PATEL</b></td>
+<td><code>25MEI10037</code></td>
+<td>VIT Bhopal University</td>
+</tr>
+</table>
+
+---
+
+# 🏆 BeyondThePrompt Hackathon
+
+PULSEFIT was built for the **BeyondThePrompt Hackathon** by **Momo Byte**.
+
+### Our thesis
+
+> **Don't just find a busy location. Find the operating model that can survive it.**
+
+```text
+LOCATION
+   │
+   ▼
+DEMAND RHYTHM
+   │
+   ▼
+OPERATING MODEL
+   │
+   ▼
+RESILIENCE
+   │
+   ▼
+BETTER COMMERCIAL DECISION
+```
+
+---
+
+# 🌐 Live Product
+
+<div align="center">
+
+### 🚀 Try PULSEFIT
+
+**[pulse-fit-beyond-the-prompt-hackath.vercel.app](https://pulse-fit-beyond-the-prompt-hackath.vercel.app/)**
+
+<br>
+
+**Build → Diagnose → Stress Test → Decide**
+
+</div>
+
+---
+
+# 📄 License
+
+This project is released under the **MIT License**.
+
+Developed with ❤️ by **Momo Byte** for the **BeyondThePrompt Hackathon**.
+
+---
+
+<div align="center">
+
+## ⚡ PULSEFIT
+
+**Commercial Decision Cockpit**
+
+*Choose the operating model, not just the location.*
+
+<br>
+
+`Built with React • TypeScript • Deterministic Decision Intelligence`
+
+</div>

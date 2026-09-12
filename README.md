@@ -20,7 +20,7 @@ Instead of generating speculative revenue numbers or generic map heatmaps, Pulse
 | Role | Developer | Registration No. | Institution | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **Full-Stack & Product Architecture** | **BHAVYA KUSHWAHA** | `25BSA10157` | VIT Bhopal University | Student Developer |
-| **Scoring Engine & Strategy Analytics** | **UMANG PATEL** | `25MEI10037` | VIT Bhopal University | Student Developer |
+| **UI, System Design, Scoring Engine & Strategy Analytics** | **UMANG PATEL** | `25MEI10037` | VIT Bhopal University | Student Developer |
 
 ---
 
@@ -91,7 +91,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open https://pulse-fit-beyond-the-prompt-hackath.vercel.app/ in your browser.
 
 ### Run Automated Tests
 
